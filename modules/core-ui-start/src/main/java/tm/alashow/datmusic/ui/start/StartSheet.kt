@@ -1,8 +1,4 @@
-/*
- * Copyright (C) 2021, Alashov Berkeli
- * All rights reserved.
- */
-package tm.alashow.datmusic.ui.playback
+package tm.alashow.datmusic.ui.start
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateColorAsState
@@ -93,7 +89,10 @@ import tm.alashow.datmusic.ui.audios.LocalAudioActionHandler
 import tm.alashow.datmusic.ui.audios.audioActionHandler
 import tm.alashow.datmusic.ui.audios.currentPlayingMenuActionLabels
 import tm.alashow.datmusic.ui.library.playlist.addTo.AddToPlaylistMenu
+import tm.alashow.datmusic.ui.playback.PlaybackViewModel
+import tm.alashow.datmusic.ui.playback.ResizablePlaybackSheetLayoutViewModel
 import tm.alashow.datmusic.ui.playback.components.PlaybackArtworkPagerWithNowPlayingAndControls
+
 import tm.alashow.navigation.LocalNavigator
 import tm.alashow.navigation.Navigator
 import tm.alashow.ui.ADAPTIVE_COLOR_ANIMATION
@@ -109,14 +108,14 @@ import tm.alashow.ui.theme.AppTheme
 import tm.alashow.ui.theme.LocalThemeState
 import tm.alashow.ui.theme.plainBackgroundColor
 
+
 private val RemoveFromPlaylist = R.string.playback_queue_removeFromQueue
 private val AddQueueToPlaylist = R.string.playback_queue_addQueueToPlaylist
 private val SaveQueueAsPlaylist = R.string.playback_queue_saveAsPlaylist
 
 
-//播放页
 @Composable
-fun PlaybackSheet(
+fun StartSheet(
     // override local theme color palette because we want simple colors for menus n' stuff
     sheetTheme: ThemeState = LocalThemeState.current.copy(colorPalettePreference = ColorPalettePreference.Black),
     navigator: Navigator = LocalNavigator.current,
@@ -163,6 +162,8 @@ internal fun PlaybackSheetContent(
     val adaptiveColor by adaptiveColor(nowPlaying.artwork, initial = MaterialTheme.colors.onBackground)
     val contentColor by animateColorAsState(adaptiveColor.color, ADAPTIVE_COLOR_ANIMATION)
 
+
+
     LaunchedEffect(playbackConnection) {
         playbackConnection.playbackState
             .filter { it != NONE_PLAYBACK_STATE }
@@ -175,7 +176,7 @@ internal fun PlaybackSheetContent(
         applyBottom = true,
     )
 
-    if (playbackState == NONE_PLAYBACK_STATE) {
+    if (true) {
         Row(Modifier.fillMaxSize()) { FullScreenLoading(delayMillis = 0) }
         return
     }
@@ -265,7 +266,7 @@ private fun RowScope.ResizablePlaybackQueue(
         maxWeight = 1.25f,
         dragOffset = dragOffset,
         setDragOffset = setDragOffset,
-        analyticsPrefix = "playbackSheet.layout",
+        analyticsPrefix = "startSheet.layout",
         modifier = modifier,
     ) { resizableModifier ->
         val labelMod = Modifier.padding(top = AppTheme.specs.padding)

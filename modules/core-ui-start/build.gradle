@@ -1,0 +1,60 @@
+/*
+* Copyright (C) 2021, Alashov Berkeli
+* All rights reserved.
+*/
+
+
+
+import tm.alashow.buildSrc.App
+import tm.alashow.buildSrc.Deps
+
+plugins {
+	id "com.android.library"
+	id "dagger.hilt.android.plugin"
+	id "kotlin-android"
+	id "kotlin-kapt"
+}
+
+android {
+	compileSdkVersion App.compileSdkVersion
+
+	defaultConfig {
+		minSdkVersion App.minSdkVersion
+
+		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+	}
+
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_8
+		targetCompatibility JavaVersion.VERSION_1_8
+	}
+
+	buildFeatures {
+		compose = true
+	}
+
+	composeOptions {
+		kotlinCompilerExtensionVersion Deps.Android.Compose.compilerVersion
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	api project(":modules:core-playback")
+	api project(':modules:common-compose')
+	api project(":modules:common-ui-theme")
+	api project(":modules:common-ui-components")
+	api project(":modules:core-ui-media")
+	implementation project(":modules:navigation")
+
+	implementation Deps.Dagger.hilt
+	implementation project(path: ':modules:core-ui-playback')
+	kapt Deps.Dagger.compiler
+	kapt Deps.Dagger.hiltCompiler
+
+	testImplementation project(":modules:common-testing")
+	kaptTest Deps.Dagger.hiltCompiler
+}

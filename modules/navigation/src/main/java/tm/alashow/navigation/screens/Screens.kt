@@ -115,6 +115,8 @@ sealed class LeafScreen(
         override val rootRoute: String = "library_root"
     ) : LeafScreen(route, rootRoute)
 
+    data class StartSheet(override val route: String = "start_sheet") : LeafScreen(route)
+
     data class PlaybackSheet(override val route: String = "playback_sheet") : LeafScreen(route)
 
     data class PlaylistDetail(

@@ -31,6 +31,7 @@ import tm.alashow.datmusic.ui.library.playlists.create.CreatePlaylist
 import tm.alashow.datmusic.ui.library.playlists.detail.PlaylistDetail
 import tm.alashow.datmusic.ui.library.playlists.edit.EditPlaylist
 import tm.alashow.datmusic.ui.playback.PlaybackSheet
+import tm.alashow.datmusic.ui.start.StartSheet
 import tm.alashow.datmusic.ui.search.Search
 import tm.alashow.datmusic.ui.settings.Settings
 import tm.alashow.navigation.LocalNavigator
@@ -56,8 +57,14 @@ internal fun AppNavigation(
             is NavigationEvent.Destination -> {
                 // ugly fix: close playback before navigating away
                 // so it doesn't stay in the backstack when switching back to the same tab
+
+                if (navController.currentBackStackEntry?.destination?.route == LeafScreen.StartSheet().route)
+                    navController.navigateUp()
+
                 if (navController.currentBackStackEntry?.destination?.route == LeafScreen.PlaybackSheet().route)
                     navController.navigateUp()
+
+
                 // switch tabs first because of a bug in navigation that doesn't allow
                 // changing tabs when destination is opened from a different tab
                 event.root?.let {
@@ -89,6 +96,7 @@ internal fun AppNavigation(
         addLibraryRoot()
         addSettingsRoot()
         addPlaybackSheet()
+        addStartSheet()
     }
 }
 
@@ -192,6 +200,13 @@ private fun NavGraphBuilder.addAlbumDetails(root: RootScreen) {
         AlbumDetail()
     }
 }
+
+private fun NavGraphBuilder.addStartSheet() {
+    bottomSheetScreen(LeafScreen.StartSheet()) {
+        StartSheet()
+    }
+}
+
 
 private fun NavGraphBuilder.addPlaybackSheet() {
     bottomSheetScreen(LeafScreen.PlaybackSheet()) {
