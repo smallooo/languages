@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   Copyright (C) 2021, Alashov Berkeli
   All rights reserved.
   -->
@@ -34,4 +33,34 @@
         <item name="android:windowLightStatusBar" tools:targetApi="23">@bool/use_light_status_bar
         </item>
     </style>
+
+<!--    <style name="Theme.OnBoardingCompose" parent="Theme.SplashScreen">-->
+<!--        <item name="android:statusBarColor">@color/blue_700</item>-->
+<!--    </style>-->
+
+
+<!--    <style name="Theme.CustomSplashScreenTheme" parent="Theme.OnBoardingCompose">-->
+
+<!--        <item name="windowSplashScreenBackground">@color/white</item>-->
+<!--        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>-->
+<!--        <item name="windowSplashScreenAnimationDuration">6000</item>-->
+<!--        <item name="postSplashScreenTheme">@style/Theme.OnBoardingCompose</item>-->
+
+<!--    </style>-->
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        // Set the splash screen background, animated icon, and animation duration.
+        <item name="windowSplashScreenBackground">@color/white</item>
+
+        // Use windowSplashScreenAnimatedIcon to add either a drawable or an
+        // animated drawable. One of these is required.
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="windowSplashScreenAnimationDuration">2100</item>  # Required for
+        # animated icons
+
+        // Set the theme of the Activity that directly follows your splash screen.
+        <item name="postSplashScreenTheme">@style/Theme.App.Home</item>  # Required.
+    </style>
+
+
 </resources>

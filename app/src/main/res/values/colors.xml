@@ -5,4 +5,7 @@
 <resources>
     <color name="primary">#16053D</color>
     <color name="secondary">#FF3C8F</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="blue_700">#0086c3</color>
 </resources>

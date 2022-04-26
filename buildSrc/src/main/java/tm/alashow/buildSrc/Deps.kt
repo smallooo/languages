@@ -47,6 +47,9 @@ object Deps {
 
         const val archCoreTesting = "androidx.arch.core:core-testing:2.1.0"
 
+        // Splash API
+        const val splashscreen = "androidx.core:core-splashscreen:1.0.0-beta02"
+
         object Compose {
             const val version = "1.2.0-alpha01"
             const val compilerVersion = version

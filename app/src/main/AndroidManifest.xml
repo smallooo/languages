@@ -18,10 +18,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:theme="@style/Theme.App.Home">
+        android:theme="@style/Theme.App.Starting">
         <activity
             android:name="tm.alashow.datmusic.ui.MainActivity"
-            android:theme="@style/Theme.App.Home"
+            android:theme="@style/Theme.App.Starting"
             android:windowSoftInputMode="adjustResize|adjustPan"
             android:exported="true">
             <intent-filter>

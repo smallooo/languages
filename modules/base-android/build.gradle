@@ -53,6 +53,10 @@ dependencies {
 	api Deps.Android.Lifecycle.vmKotlin
 	api Deps.Android.Lifecycle.vmSavedState
 
+	api Deps.Android.splashscreen
+
+
+
 	api Deps.Android.Paging.runtime
 
 	api Deps.Android.palette
