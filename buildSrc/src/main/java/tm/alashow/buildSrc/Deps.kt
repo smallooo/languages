@@ -58,6 +58,7 @@ object Deps {
             const val uiUtil = "androidx.compose.ui:ui-util:$version"
             const val uiTooling = "androidx.compose.ui:ui-tooling:$version"
             const val foundation = "androidx.compose.foundation:foundation:$version"
+            const val animation = "androidx.compose.foundation:animation:$version"
             const val material = "androidx.compose.material:material:$version"
             const val materialIcons = "androidx.compose.material:material-icons-core:$version"
             const val materialIconsExtended = "androidx.compose.material:material-icons-extended:$version"

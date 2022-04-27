@@ -31,3 +31,4 @@ include ":modules:ui-album"
 include ":modules:ui-downloads"
 include ":modules:ui-library"
 include ':modules:core-ui-start'
+include ':modules:composevideoplayer'

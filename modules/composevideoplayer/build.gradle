@@ -1,0 +1,44 @@
+import tm.alashow.buildSrc.App
+import tm.alashow.buildSrc.Deps
+
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdkVersion App.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion App.minSdkVersion
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion Deps.Android.Compose.compilerVersion
+    }
+}
+
+dependencies {
+    api Deps.Kotlin.stdlib
+    api Deps.Android.Compose.liveData
+    api Deps.Android.Compose.ui
+    api Deps.Android.Compose.foundation
+    api Deps.Android.Compose.material
+    api Deps.Android.Compose.materialIcons
+    api Deps.Android.Compose.foundation
+    api Deps.Android.Compose.animation
+    api Deps.Android.Compose.uiTooling
+    api Deps.Android.activityKtx
+    api Deps.Kotlin.coroutinesCore
+    api Deps.Utils.exoPlayer
+
+}
