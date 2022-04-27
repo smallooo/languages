@@ -17,10 +17,10 @@ class MainActivity : ComponentActivity() {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         // Keep the splash screen visible for this Activity
-        splashScreen.setKeepOnScreenCondition { true }
-        //WindowCompat.setDecorFitsSystemWindows(window, false)
-//        setContent {
-//            DatmusicApp()
-//        }
+       // splashScreen.setKeepOnScreenCondition { true }
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        setContent {
+            DatmusicApp()
+        }
     }
 }

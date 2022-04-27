@@ -235,6 +235,7 @@ class DatmusicPlayerImpl @Inject constructor(
                 when (val downloadItem = audio.audioDownloadItem) {
                     is AudioDownloadItem -> audioPlayer.setSource(downloadItem.downloadInfo.fileUri, true)
                     else -> {
+                        //播放地址
                         val uri = audio.streamUrl?.toUri()
                         if (uri != null)
                             audioPlayer.setSource(uri, false)

@@ -123,9 +123,9 @@ fun PlaybackMiniControls(
     navigator: Navigator = LocalNavigator.current,
 ) {
     val openPlaybackSheet = {
-       // navigator.navigate(LeafScreen.PlaybackSheet().createRoute())
+        navigator.navigate(LeafScreen.PlaybackSheet().createRoute())
 
-        navigator.navigate(LeafScreen.StartSheet().createRoute())
+       // navigator.navigate(LeafScreen.StartSheet().createRoute())
 
     }
     val adaptiveColor by adaptiveColor(nowPlaying.artwork, initial = MaterialTheme.colors.background)
