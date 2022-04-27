@@ -5,5 +5,6 @@
 package tm.alashow.datmusic.domain
 
 const val UNKNOWN_ARTIST = "Unknown Artist"
+const val UNKNOWN_Creator = "Unknown Creator"
 const val UNTITLED_SONG = "Untitled Song"
 const val UNTITLED_ALBUM = "Untitled"

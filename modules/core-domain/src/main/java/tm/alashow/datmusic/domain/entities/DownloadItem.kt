@@ -18,3 +18,15 @@ data class AudioDownloadItem(
             AudioDownloadItem(downloadRequest, downloadInfo ?: DownloadInfo(), audio)
     }
 }
+
+
+data class VideoDownloadItem(
+    override val downloadRequest: DownloadRequest = DownloadRequest(),
+    override val downloadInfo: Download = DownloadInfo(),
+    val video: Video = Video(),
+) : DownloadItem(downloadRequest, downloadInfo) {
+    companion object {
+        fun from(downloadRequest: DownloadRequest, video: Video, downloadInfo: Download? = null) =
+            VideoDownloadItem(downloadRequest, downloadInfo ?: DownloadInfo(), video)
+    }
+}
