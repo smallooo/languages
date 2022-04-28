@@ -146,6 +146,7 @@ object Deps {
         const val fetchOkhttp = "com.github.alashow:xfetch2okhttp:3.1.62"
 
         const val exoPlayer = "com.google.android.exoplayer:exoplayer-core:2.15.1"
+        const val exoPlayerUi = "com.google.android.exoplayer:exoplayer-ui:2.15.1"
         const val exoPlayerOkhttp = "com.google.android.exoplayer:extension-okhttp:2.15.0"
         const val exoPlayerFlac = "com.github.alashow.ExoPlayer-Extensions:extension-flac:v2.15.1"
 

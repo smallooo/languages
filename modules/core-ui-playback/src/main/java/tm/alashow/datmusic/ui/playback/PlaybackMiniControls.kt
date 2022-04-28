@@ -56,6 +56,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
+import com.halilibo.composevideoplayer.com.halilibo.composevideoplayer.VideoPlayer
+import com.halilibo.composevideoplayer.com.halilibo.composevideoplayer.rememberVideoPlayerController
 import tm.alashow.base.util.extensions.orNA
 import tm.alashow.common.compose.LocalPlaybackConnection
 import tm.alashow.common.compose.rememberFlowWithLifecycle
@@ -209,6 +211,10 @@ private fun RowScope.PlaybackNowPlaying(
             size = maxHeight - AppTheme.specs.padding,
             modifier = Modifier.padding(AppTheme.specs.paddingSmall)
         )
+
+
+//        VideoPlayer(
+//            videoPlayerController = rememberVideoPlayerController())
 
         if (!coverOnly)
             PlaybackPager(nowPlaying = nowPlaying) { audio, _, pagerMod ->

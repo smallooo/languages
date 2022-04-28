@@ -4,6 +4,7 @@ import tm.alashow.buildSrc.Deps
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -37,8 +38,10 @@ dependencies {
     api Deps.Android.Compose.foundation
     api Deps.Android.Compose.animation
     api Deps.Android.Compose.uiTooling
+    api Deps.Android.Compose.materialIconsExtended
     api Deps.Android.activityKtx
     api Deps.Kotlin.coroutinesCore
     api Deps.Utils.exoPlayer
+    api Deps.Utils.exoPlayerUi
 
 }
