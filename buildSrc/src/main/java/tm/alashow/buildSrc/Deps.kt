@@ -151,6 +151,8 @@ object Deps {
         const val exoPlayerFlac = "com.github.alashow.ExoPlayer-Extensions:extension-flac:v2.15.1"
 
         const val qonversion = "io.qonversion.android.sdk:sdk:3.2.3"
+
+        const val gson = "com.google.code.gson:gson:2.8.0"
     }
 
     object OkHttp {

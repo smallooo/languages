@@ -4,13 +4,15 @@
  */
 package tm.alashow.datmusic.ui
 
+import android.graphics.Color
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.rememberScaffoldState
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.plusAssign
@@ -19,6 +21,9 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.google.accompanist.navigation.material.ModalBottomSheetLayout
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.halilibo.composevideoplayer.com.halilibo.composevideoplayer.VideoPlayer
+import com.halilibo.composevideoplayer.com.halilibo.composevideoplayer.VideoPlayerSource
+import com.halilibo.composevideoplayer.com.halilibo.composevideoplayer.rememberVideoPlayerController
 import tm.alashow.common.compose.LocalAnalytics
 import tm.alashow.common.compose.LocalScaffoldState
 import tm.alashow.common.compose.rememberFlowWithLifecycle
@@ -30,8 +35,10 @@ import tm.alashow.datmusic.ui.downloads.audio.LocalAudioDownloadItemActionHandle
 import tm.alashow.datmusic.ui.downloads.audio.audioDownloadItemActionHandler
 import tm.alashow.datmusic.ui.home.Home
 import tm.alashow.datmusic.ui.playback.PlaybackHost
+import tm.alashow.datmusic.ui.playback.getVideoList
 import tm.alashow.datmusic.ui.settings.LocalAppVersion
 import tm.alashow.datmusic.ui.snackbar.SnackbarMessagesListener
+import tm.alashow.domain.models.Video
 import tm.alashow.navigation.NavigatorHost
 import tm.alashow.navigation.rememberBottomSheetNavigator
 import tm.alashow.ui.ThemeViewModel
@@ -54,7 +61,8 @@ fun DatmusicApp(
                 val bottomSheetNavigator = rememberBottomSheetNavigator()
                 navController.navigatorProvider += bottomSheetNavigator
                 ModalBottomSheetLayout(bottomSheetNavigator) {
-                    Home(navController)
+//                    Home(navController)
+
                 }
             }
         }

@@ -46,22 +46,28 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.gson.Gson
 import com.halilibo.composevideoplayer.com.halilibo.composevideoplayer.VideoPlayer
+import com.halilibo.composevideoplayer.com.halilibo.composevideoplayer.VideoPlayerSource
 import com.halilibo.composevideoplayer.com.halilibo.composevideoplayer.rememberVideoPlayerController
 import tm.alashow.base.util.extensions.orNA
 import tm.alashow.common.compose.LocalPlaybackConnection
 import tm.alashow.common.compose.rememberFlowWithLifecycle
 import tm.alashow.datmusic.domain.entities.Audio
+import tm.alashow.domain.models.Video
+
 import tm.alashow.datmusic.playback.PlaybackConnection
 import tm.alashow.datmusic.playback.artwork
 import tm.alashow.datmusic.playback.artworkUri
@@ -71,8 +77,8 @@ import tm.alashow.datmusic.playback.isError
 import tm.alashow.datmusic.playback.isPlayEnabled
 import tm.alashow.datmusic.playback.isPlaying
 import tm.alashow.datmusic.playback.playPause
-import tm.alashow.datmusic.ui.playback.components.PlaybackPager
 import tm.alashow.datmusic.ui.playback.components.animatePlaybackProgress
+import tm.alashow.domain.models.VideoList
 import tm.alashow.navigation.LocalNavigator
 import tm.alashow.navigation.Navigator
 import tm.alashow.navigation.screens.LeafScreen
@@ -81,6 +87,8 @@ import tm.alashow.ui.adaptiveColor
 import tm.alashow.ui.components.CoverImage
 import tm.alashow.ui.components.IconButton
 import tm.alashow.ui.theme.AppTheme
+
+
 
 object PlaybackMiniControlsDefaults {
     val height = 56.dp
@@ -212,16 +220,40 @@ private fun RowScope.PlaybackNowPlaying(
             modifier = Modifier.padding(AppTheme.specs.paddingSmall)
         )
 
+        val videoPlayerController = rememberVideoPlayerController()
 
-//        VideoPlayer(
-//            videoPlayerController = rememberVideoPlayerController())
+        val videoList = getVideoList()
 
-        if (!coverOnly)
-            PlaybackPager(nowPlaying = nowPlaying) { audio, _, pagerMod ->
-                PlaybackNowPlaying(audio, modifier = pagerMod)
-            }
+
+        var selectedVideoState by rememberSaveable { mutableStateOf<Video?>(null) }
+        val selectedVideo = selectedVideoState
+
+       // if (selectedVideo != null) {
+        videoPlayerController.setSource(VideoPlayerSource.Network(videoList.get(0).sources.get(0)))
+      //  }
+
+        VideoPlayer(videoPlayerController = videoPlayerController)
+
+
+        videoPlayerController.playPauseToggle()
     }
 }
+
+@Composable
+fun getVideoList(): List<Video> {
+    val context = LocalContext.current
+
+    return remember(context) {
+        val content = context.resources.openRawResource(tm.alashow.datmusic.ui.playback.R.raw.videos)
+            .bufferedReader()
+            .use { it.readText() }
+        Gson().fromJson(content, VideoList::class.java).videos
+
+
+    }
+}
+
+
 
 @Composable
 private fun PlaybackNowPlaying(audio: Audio, modifier: Modifier = Modifier) {

@@ -58,4 +58,6 @@ dependencies {
 	api Deps.Testing.truth
 	api Deps.Testing.turbine
 	api Deps.Testing.robolectric
+
+	implementation 'com.google.code.gson:gson:2.9.0'
 }
