@@ -22,7 +22,7 @@ object Deps {
     }
 
     object Android {
-        private const val gradleVersion = "7.0.4"
+        private const val gradleVersion = "7.1.3"
 
         const val gradle = "com.android.tools.build:gradle:$gradleVersion"
 
@@ -31,10 +31,10 @@ object Deps {
         const val activityVersion = "1.4.0"
         const val activityKtx = "androidx.activity:activity-ktx:$activityVersion"
 
-        private const val navigationVersion = "2.4.0-rc01"
+        private const val navigationVersion = "2.4.1"
         const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
         const val navigationUi = "androidx.navigation:navigation-ui-ktx:$navigationVersion"
-        const val navigationSafeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:2.4.0-rc01"
+        const val navigationSafeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:2.4.1"
         const val navigationCompose = "androidx.navigation:navigation-compose:$navigationVersion"
         const val navigationHiltCompose = "androidx.hilt:hilt-navigation-compose:1.0.0-rc01"
 
@@ -58,7 +58,7 @@ object Deps {
             const val uiUtil = "androidx.compose.ui:ui-util:$version"
             const val uiTooling = "androidx.compose.ui:ui-tooling:$version"
             const val foundation = "androidx.compose.foundation:foundation:$version"
-            const val animation = "androidx.compose.foundation:animation:$version"
+            const val animation = "androidx.compose.animation:animation:$version"
             const val material = "androidx.compose.material:material:$version"
             const val materialIcons = "androidx.compose.material:material-icons-core:$version"
             const val materialIconsExtended = "androidx.compose.material:material-icons-extended:$version"
