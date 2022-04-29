@@ -120,23 +120,23 @@ private fun Search(
 
     Scaffold(
         topBar = {
-            SearchAppBar(
-                modifier = Modifier
-                    .graphicsLayer {
-                        alpha = 1 - searchBarVisibility.value
-                        translationY = searchBarHeight.value * (-searchBarVisibility.value)
-                    },
-                state = viewState,
-                onQueryChange = { actioner(SearchAction.QueryChange(it)) },
-                onSearch = { actioner(SearchAction.Search) },
-                onBackendTypeSelect = { actioner(it) }
-            )
+//            SearchAppBar(
+//                modifier = Modifier
+//                    .graphicsLayer {
+//                        alpha = 1 - searchBarVisibility.value
+//                        translationY = searchBarHeight.value * (-searchBarVisibility.value)
+//                    },
+//                state = viewState,
+//                onQueryChange = { actioner(SearchAction.QueryChange(it)) },
+//                onSearch = { actioner(SearchAction.Search) },
+//                onBackendTypeSelect = { actioner(it) }
+//            )
         }
     ) {
-        SearchList(
-            viewModel = viewModel,
-            listState = listState,
-        )
+//        SearchList(
+//            viewModel = viewModel,
+//            listState = listState,
+//        )
     }
 }
 

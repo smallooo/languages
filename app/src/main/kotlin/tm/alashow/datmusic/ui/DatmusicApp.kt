@@ -61,7 +61,7 @@ fun DatmusicApp(
                 val bottomSheetNavigator = rememberBottomSheetNavigator()
                 navController.navigatorProvider += bottomSheetNavigator
                 ModalBottomSheetLayout(bottomSheetNavigator) {
-//                    Home(navController)
+                    Home(navController)
 
                 }
             }

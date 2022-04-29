@@ -77,6 +77,7 @@ import tm.alashow.datmusic.playback.isError
 import tm.alashow.datmusic.playback.isPlayEnabled
 import tm.alashow.datmusic.playback.isPlaying
 import tm.alashow.datmusic.playback.playPause
+import tm.alashow.datmusic.ui.playback.components.PlaybackPager
 import tm.alashow.datmusic.ui.playback.components.animatePlaybackProgress
 import tm.alashow.domain.models.VideoList
 import tm.alashow.navigation.LocalNavigator
@@ -220,22 +221,27 @@ private fun RowScope.PlaybackNowPlaying(
             modifier = Modifier.padding(AppTheme.specs.paddingSmall)
         )
 
-        val videoPlayerController = rememberVideoPlayerController()
+        if (!coverOnly)
+            PlaybackPager(nowPlaying = nowPlaying) { audio, _, pagerMod ->
+                PlaybackNowPlaying(audio, modifier = pagerMod)
+            }
 
-        val videoList = getVideoList()
-
-
-        var selectedVideoState by rememberSaveable { mutableStateOf<Video?>(null) }
-        val selectedVideo = selectedVideoState
-
-       // if (selectedVideo != null) {
-        videoPlayerController.setSource(VideoPlayerSource.Network(videoList.get(0).sources.get(0)))
-      //  }
-
-        VideoPlayer(videoPlayerController = videoPlayerController)
-
-
-        videoPlayerController.playPauseToggle()
+//        val videoPlayerController = rememberVideoPlayerController()
+//
+//        val videoList = getVideoList()
+//
+//
+//        var selectedVideoState by rememberSaveable { mutableStateOf<Video?>(null) }
+//        val selectedVideo = selectedVideoState
+//
+//        if (selectedVideo != null) {
+//        videoPlayerController.setSource(VideoPlayerSource.Network(videoList.get(0).sources.get(0)))
+//        }
+//
+//        VideoPlayer(videoPlayerController = videoPlayerController)
+//
+//
+//        videoPlayerController.playPauseToggle()
     }
 }
 

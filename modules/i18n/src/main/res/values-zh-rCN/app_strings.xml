@@ -45,7 +45,7 @@
     <string name="downloader.enqueue.audio.existing.unknown">Download request exists but has unhandled status: %1$s</string>
 
     <string name="downloads.title">下载</string>
-    <string name="downloads.empty">No Downloads</string>
+    <string name="downloads.empty">没有下载内容</string>
 
     <string name="downloads.filter.search.hint">Search in downloads</string>
     <string name="downloads.filter.clear">Clear filters</string>
@@ -151,12 +151,12 @@
     <string name="settings.title">设置</string>
 
     <string name="settings.theme">Theme</string>
-    <string name="settings.theme.darkMode">Dark mode</string>
-    <string name="settings.theme.colorPalette">Color palette</string>
+    <string name="settings.theme.darkMode">深色模式</string>
+    <string name="settings.theme.colorPalette">主色调</string>
 
-    <string name="settings.downloads">Downloads</string>
-    <string name="settings.downloads.location">Downloads location</string>
-    <string name="settings.downloads.location.select">Select</string>
+    <string name="settings.downloads">下载</string>
+    <string name="settings.downloads.location">下载位置</string>
+    <string name="settings.downloads.location.select">选择</string>
     <string name="settings.downloads.location.change">Change</string>
     <string name="settings.downloads.songsGrouping">Songs folder grouping</string>
     <string name="settings.downloads.songsGrouping.byAlbum">By Album</string>
@@ -166,25 +166,25 @@
     <string name="settings.downloads.songsGrouping.flat">Flat</string>
     <string name="settings.downloads.songsGrouping.flat.example">/Song</string>
 
-    <string name="settings.about">About</string>
-    <string name="settings.about.author">Author</string>
-    <string name="settings.about.author.text">Alashov Berkeli</string>
+    <string name="settings.about">关于</string>
+    <string name="settings.about.author">开发者</string>
+    <string name="settings.about.author.text">smallooo</string>
     <string name="settings.about.author.link">https://alashov.com</string>
-    <string name="settings.about.version">Version</string>
+    <string name="settings.about.version">版本号</string>
 
     <string name="settings.general">General</string>
 
-    <string name="settings.premium">Premium</string>
+    <string name="settings.premium">会员</string>
     <string name="settings.premium.subscribe">Subscribe</string>
     <string name="settings.premium.view">View subscription</string>
     <string name="settings.premium.disabled">Disabled</string>
 
     <string name="settings.library">Library</string>
     <string name="settings.database">Database</string>
-    <string name="settings.database.backup">Backup</string>
-    <string name="settings.database.backup.complete">Backup complete</string>
-    <string name="settings.database.restore">Restore</string>
-    <string name="settings.database.restore.complete">Restore complete</string>
+    <string name="settings.database.backup">保存</string>
+    <string name="settings.database.backup.complete">保存完成</string>
+    <string name="settings.database.restore">导入</string>
+    <string name="settings.database.restore.complete">导入完成</string>
     <string name="settings.database.restore.NonMatchingVersion">Backup file has non-matching version with the app, restoration might fail (%1$d vs backup version %2$d).</string>
 
     <string name="subscriptions.required">Subscription required for this feature</string>
