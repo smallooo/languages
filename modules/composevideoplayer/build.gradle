@@ -1,5 +1,5 @@
-import tm.alashow.buildSrc.App
-import tm.alashow.buildSrc.Deps
+import com.alashow.buildSrc.App
+import com.alashow.buildSrc.Deps
 
 plugins {
     id 'com.android.library'

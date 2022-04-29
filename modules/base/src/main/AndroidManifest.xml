@@ -5,7 +5,7 @@
   All rights reserved.
   -->
 
-<manifest package="tm.alashow.base"
+<manifest package="com.alashow.base"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />

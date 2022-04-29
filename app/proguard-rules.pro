@@ -9,11 +9,11 @@
 
 -keepattributes *Annotation*, InnerClasses
 -dontnote kotlinx.serialization.SerializationKt
--keep,includedescriptorclasses class tm.alashow.**$$serializer { *; }
--keepclassmembers class tm.alashow.** {
+-keep,includedescriptorclasses class com.alashow.**$$serializer { *; }
+-keepclassmembers class com.alashow.** {
     *** Companion;
 }
--keepclasseswithmembers class tm.alashow.** {
+-keepclasseswithmembers class com.alashow.** {
     kotlinx.serialization.KSerializer serializer(...);
 }
 
@@ -42,5 +42,5 @@
 -keep interface com.tonyodev.fetch2core.** {*;}
 
 # project
--keep class tm.alashow.datmusic.domain.entities.** { *; }
--keep class tm.alashow.datmusic.domain.models.** { *; }
+-keep class com.alashow.datmusic.domain.entities.** { *; }
+-keep class com.alashow.datmusic.domain.models.** { *; }

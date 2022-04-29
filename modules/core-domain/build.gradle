@@ -4,7 +4,7 @@
 */
 
 
-import tm.alashow.buildSrc.App
+import com.alashow.buildSrc.App
 
 plugins {
 	id "com.android.library"

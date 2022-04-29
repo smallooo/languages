@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tm.alashow.datmusic">
+    package="com.alashow.datmusic">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,7 +12,7 @@
     <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
-        android:name="tm.alashow.datmusic.App"
+        android:name="com.alashow.datmusic.App"
         android:allowBackup="true"
         android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
@@ -21,7 +21,7 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.App.Starting">
         <activity
-            android:name="tm.alashow.datmusic.ui.MainActivity"
+            android:name="com.alashow.datmusic.ui.MainActivity"
             android:theme="@style/Theme.App.Starting"
             android:windowSoftInputMode="adjustResize|adjustPan"
             android:exported="true">
@@ -37,7 +37,7 @@
         </activity>
 
         <service
-            android:name="tm.alashow.datmusic.fcm.FirebaseMessagingService"
+            android:name="com.alashow.datmusic.fcm.FirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -45,7 +45,7 @@
         </service>
 
         <service
-            android:name="tm.alashow.datmusic.playback.services.PlayerService"
+            android:name="com.alashow.datmusic.playback.services.PlayerService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

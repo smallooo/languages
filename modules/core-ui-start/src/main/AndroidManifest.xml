@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tm.alashow.datmusic.ui.start">
+    package="com.alashow.datmusic.ui.start">
 
 </manifest>
