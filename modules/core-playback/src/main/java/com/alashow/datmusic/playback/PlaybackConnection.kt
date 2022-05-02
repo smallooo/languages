@@ -6,12 +6,14 @@ package com.alashow.datmusic.playback
 
 import android.content.ComponentName
 import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.media.MediaBrowserCompat
 import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaControllerCompat
 import android.support.v4.media.session.MediaSessionCompat
 import android.support.v4.media.session.PlaybackStateCompat
+import androidx.core.net.toUri
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.lifecycle.lifecycleScope
@@ -57,6 +59,8 @@ import com.alashow.datmusic.playback.players.QUEUE_MEDIA_ID_KEY
 import com.alashow.datmusic.playback.players.QUEUE_TITLE_KEY
 import com.alashow.datmusic.playback.players.QUEUE_TO_POSITION_KEY
 import com.alashow.domain.models.orNull
+import java.net.URI
+import java.net.URL
 
 const val PLAYBACK_PROGRESS_INTERVAL = 1000L
 
@@ -75,6 +79,7 @@ interface PlaybackConnection {
     val transportControls: MediaControllerCompat.TransportControls?
 
     fun playAudio(audio: Audio, title: QueueTitle = QueueTitle())
+    fun playRadio(uri :String)
     fun playNextAudio(audio: Audio)
     fun playAudios(audios: List<Audio>, index: Int = 0, title: QueueTitle = QueueTitle())
     fun playArtist(artistId: ArtistId, index: Int = 0)
@@ -89,6 +94,8 @@ interface PlaybackConnection {
 
     fun removeByPosition(position: Int)
     fun removeById(id: String)
+
+
 }
 
 class PlaybackConnectionImpl(
@@ -209,6 +216,12 @@ class PlaybackConnectionImpl(
         )
     }
 
+    override fun playRadio(uri: String) {
+//        audioPlayer.setSource(uri.toUri(), false)
+        transportControls?.playFromUri(uri.toUri(), Bundle())
+       // nowPlaying = MutableStateFlow(NONE_PLAYING)
+    }
+
     override fun playNextAudio(audio: Audio) {
         transportControls?.sendCustomAction(
             PLAY_NEXT,
@@ -300,6 +313,7 @@ class PlaybackConnectionImpl(
             )
         )
     }
+
 
     private inner class MediaBrowserConnectionCallback(private val context: Context) :
         MediaBrowserCompat.ConnectionCallback() {

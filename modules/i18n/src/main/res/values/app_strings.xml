@@ -84,6 +84,8 @@
     <string name="library.item.menu.delete">Delete</string>
     <string name="library.item.menu.download">Download</string>
 
+    <string name="radio.title">Radio List</string>
+
     <string name="playlist.title">Playlist</string>
     <string name="playlist.empty">Playlist is empty</string>
     <string name="playlist.empty.addSongs">Add Songs</string>

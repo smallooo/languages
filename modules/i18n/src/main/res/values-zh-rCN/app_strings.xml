@@ -76,13 +76,15 @@
     <string name="downloads.download.remove">移除</string>
     <string name="downloads.download.delete">删除</string>
 
-    <string name="library.title">媒体库</string>
+    <string name="library.title">广播</string>
     <string name="library.empty">No items</string>
 
     <string name="library.item.menu.cd">Library item menu</string>
     <string name="library.item.menu.edit">Edit</string>
     <string name="library.item.menu.delete">Delete</string>
     <string name="library.item.menu.download">Download</string>
+
+    <string name="radio.title">广播列表</string>
 
     <string name="playlist.title">播放列表</string>
     <string name="playlist.empty">Playlist is empty</string>

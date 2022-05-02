@@ -152,7 +152,7 @@ object Deps {
 
         const val qonversion = "io.qonversion.android.sdk:sdk:3.2.3"
 
-        const val gson = "com.google.code.gson:gson:2.8.0"
+        const val gson = "com.google.code.gson:gson:2.9.0"
     }
 
     object OkHttp {

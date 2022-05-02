@@ -52,4 +52,7 @@ dependencies {
 	implementation Deps.Dagger.hilt
 	kapt Deps.Dagger.compiler
 	kapt Deps.Dagger.hiltCompiler
+	kapt Deps.Utils.gson
+
+	implementation 'com.google.code.gson:gson:2.9.0'
 }

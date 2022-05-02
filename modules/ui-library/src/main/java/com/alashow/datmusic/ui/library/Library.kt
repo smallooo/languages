@@ -4,6 +4,7 @@
  */
 package com.alashow.datmusic.ui.library
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -12,11 +13,13 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.insets.ui.Scaffold
@@ -25,6 +28,7 @@ import com.alashow.common.compose.rememberFlowWithLifecycle
 import com.alashow.datmusic.domain.entities.Album
 import com.alashow.datmusic.domain.entities.LibraryItems
 import com.alashow.datmusic.domain.entities.Playlist
+import com.alashow.datmusic.ui.RadioHome
 import com.alashow.datmusic.ui.library.items.LibraryItemRow
 import com.alashow.datmusic.ui.library.playlists.PlaylistRow
 import com.alashow.domain.models.Success
@@ -51,29 +55,14 @@ private fun Library(
     val listState = rememberLazyListState()
     val asyncLibraryItems by rememberFlowWithLifecycle(viewModel.libraryItems)
 
-    Scaffold(
-        topBar = {
-            LibraryTopBar(
-                onCreatePlaylist = {
-                    navigator.navigate(LeafScreen.CreatePlaylist().createRoute())
-                }
-            )
-        },
-        modifier = Modifier.fillMaxSize()
-    ) { padding ->
-        when (val items = asyncLibraryItems) {
-            is Success -> {
-                LazyColumn(
-                    contentPadding = padding,
-                    state = listState
-                ) {
-                    libraryList(items())
-                }
-            }
-            else -> FullScreenLoading()
-        }
+    Scaffold(modifier = Modifier.fillMaxSize()) { padding ->
+        RadioHome()
     }
 }
+
+
+
+
 
 @Composable
 private fun LibraryTopBar(onCreatePlaylist: Callback = {}) {
