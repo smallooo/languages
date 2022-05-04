@@ -4,6 +4,7 @@
  */
 package com.alashow.datmusic.ui.search
 
+import android.os.Build.VERSION.SDK_INT
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.Animatable
@@ -12,6 +13,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkOut
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,13 +37,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusManager
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.platform.LocalWindowInfo
-import androidx.compose.ui.platform.WindowInfo
+import androidx.compose.ui.platform.*
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import coil.ImageLoader
+import coil.compose.rememberAsyncImagePainter
+import coil.compose.rememberImagePainter
+import coil.decode.GifDecoder
+import coil.decode.ImageDecoderDecoder
+
+
 import com.google.accompanist.insets.LocalWindowInsets
 import com.google.accompanist.insets.WindowInsets
 import com.google.accompanist.insets.statusBarsPadding
@@ -56,10 +62,12 @@ import com.alashow.common.compose.rememberFlowWithLifecycle
 import com.alashow.datmusic.data.DatmusicSearchParams.BackendType
 import com.alashow.navigation.screens.QUERY_KEY
 import com.alashow.ui.components.ChipsRow
+import com.alashow.ui.components.CoverImage
 import com.alashow.ui.components.SearchTextField
 import com.alashow.ui.theme.AppTheme
 import com.alashow.ui.theme.topAppBarTitleStyle
 import com.alashow.ui.theme.translucentSurface
+import kotlinx.coroutines.withContext
 
 @Composable
 fun Search() {
@@ -103,6 +111,17 @@ private fun Search(
     val searchBarHeight = 200.dp
     val searchBarVisibility = remember { Animatable(0f) }
 
+    val context = LocalContext.current
+    val imageLoader = ImageLoader.Builder(context)
+        .components {
+            if (SDK_INT >= 28) {
+                add(ImageDecoderDecoder.Factory())
+            } else {
+                add(GifDecoder.Factory())
+            }
+        }
+        .build()
+
     // hide search bar when scrolling after some scroll
     LaunchedEffect(listState) {
         snapshotFlow { listState.isScrollInProgress }
@@ -120,23 +139,28 @@ private fun Search(
 
     Scaffold(
         topBar = {
-            SearchAppBar(
-                modifier = Modifier
-                    .graphicsLayer {
-                        alpha = 1 - searchBarVisibility.value
-                        translationY = searchBarHeight.value * (-searchBarVisibility.value)
-                    },
-                state = viewState,
-                onQueryChange = { actioner(SearchAction.QueryChange(it)) },
-                onSearch = { actioner(SearchAction.Search) },
-                onBackendTypeSelect = { actioner(it) }
-            )
+//            SearchAppBar(
+//                modifier = Modifier
+//                    .graphicsLayer {
+//                        alpha = 1 - searchBarVisibility.value
+//                        translationY = searchBarHeight.value * (-searchBarVisibility.value)
+//                    },
+//                state = viewState,
+//                onQueryChange = { actioner(SearchAction.QueryChange(it)) },
+//                onSearch = { actioner(SearchAction.Search) },
+//                onBackendTypeSelect = { actioner(it) }
+//            )
         }
     ) {
-        SearchList(
-            viewModel = viewModel,
-            listState = listState,
-        )
+       // CoverImage(R.drawable.a123)
+
+        Image(
+            painter = rememberAsyncImagePainter(model = R.drawable.a123, imageLoader = imageLoader),"")
+
+//        SearchList(
+//            viewModel = viewModel,
+//            listState = listState,
+//        )
     }
 }
 

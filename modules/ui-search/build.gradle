@@ -51,4 +51,12 @@ dependencies {
 	implementation Deps.Dagger.hilt
 	kapt Deps.Dagger.compiler
 	kapt Deps.Dagger.hiltCompiler
+
+	kapt Deps.Android.Compose.coil
+	kapt Deps.Utils.coil
+	kapt Deps.Utils.coilGif
+
+	implementation("io.coil-kt:coil-gif:2.0.0-alpha06")
+
+
 }

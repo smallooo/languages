@@ -29,10 +29,7 @@ fun SpotifyLaneItem(album: Album) {
             .width(180.dp)
             .padding(8.dp)
             .clickable(
-                onClick = {
-                    //Disclaimer: We should pass event top level and there should startActivity
-                    //context.startActivity(SpotifyDetailActivity.newIntent(context, album))
-                })
+                onClick = {})
     ) {
         Image(
             painter = painterResource(id = album.imageId),

@@ -12,40 +12,45 @@
     <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
-        android:name="com.alashow.datmusic.App"
+        android:name=".App"
         android:allowBackup="true"
         android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.App.Starting">
+        android:theme="@style/Theme.App.Starting"
+        android:usesCleartextTraffic="true">
         <activity
-            android:name="com.alashow.datmusic.ui.MainActivity"
+            android:name=".DatingHomeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_dating_home"
+            android:theme="@style/Theme.App.Starting" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
             android:theme="@style/Theme.App.Starting"
-            android:windowSoftInputMode="adjustResize|adjustPan"
-            android:exported="true">
+            android:windowSoftInputMode="adjustResize|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <data
-                    android:scheme="https"
-                    android:host="datmusic.xyz" />
+                    android:host="datmusic.xyz"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
 
         <service
-            android:name="com.alashow.datmusic.fcm.FirebaseMessagingService"
+            android:name=".fcm.FirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
         <service
-            android:name="com.alashow.datmusic.playback.services.PlayerService"
+            android:name=".playback.services.PlayerService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -60,7 +65,6 @@
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>

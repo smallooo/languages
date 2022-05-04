@@ -79,7 +79,7 @@ interface PlaybackConnection {
     val transportControls: MediaControllerCompat.TransportControls?
 
     fun playAudio(audio: Audio, title: QueueTitle = QueueTitle())
-    fun playRadio(uri :String)
+    fun playRadio(uri: String)
     fun playNextAudio(audio: Audio)
     fun playAudios(audios: List<Audio>, index: Int = 0, title: QueueTitle = QueueTitle())
     fun playArtist(artistId: ArtistId, index: Int = 0)
@@ -216,13 +216,15 @@ class PlaybackConnectionImpl(
         )
     }
 
+
+    //播放广播
     override fun playRadio(uri: String) {
-//        audioPlayer.setSource(uri.toUri(), false)
-      //  transportControls?.playFromUri(uri.toUri(), Bundle())
-       nowPlaying.value = NONE_PLAYING
-        audioPlayer.setSource(uri.toUri(),false)
+        nowPlaying.value = NONE_PLAYING
+        audioPlayer.setSource(uri.toUri(), false)
         transportControls?.playFromUri(uri.toUri(), Bundle())
+
         transportControls?.play()
+        audioPlayer.play()
     }
 
     override fun playNextAudio(audio: Audio) {

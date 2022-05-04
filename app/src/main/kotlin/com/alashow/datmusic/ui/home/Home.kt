@@ -14,9 +14,7 @@ import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -30,11 +28,10 @@ import com.alashow.datmusic.playback.isActive
 import com.alashow.datmusic.ui.AppNavigation
 import com.alashow.datmusic.ui.currentScreenAsState
 import com.alashow.datmusic.ui.hostNavGraph
-import com.alashow.datmusic.ui.playback.PlaybackMiniControls
+
 import com.alashow.navigation.screens.RootScreen
 import com.alashow.ui.DismissableSnackbarHost
 import com.alashow.ui.isWideLayout
-import com.alashow.ui.theme.AppTheme
 
 val HomeBottomNavigationHeight = 56.dp
 
@@ -67,11 +64,6 @@ internal fun Home(
                 bottomBar = {
                     if (!isWideLayout)
                         Column {
-                            PlaybackMiniControls(
-                                modifier = Modifier
-                                    .graphicsLayer(translationY = AppTheme.specs.padding.value)
-                                    .zIndex(2f)
-                            )
                             HomeBottomNavigation(
                                 selectedTab = selectedTab,
                                 onNavigationSelected = { selected -> navController.selectRootScreen(selected) },

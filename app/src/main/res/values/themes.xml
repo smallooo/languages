@@ -4,6 +4,7 @@
   -->
 
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="Platform.Theme.App" parent="android:Theme.Material.Light" />
 
     <style name="Base.Theme.App" parent="Platform.Theme.App">
@@ -23,30 +24,33 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
 
         <item name="android:navigationBarColor">@color/nav_bar_scrim</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">@bool/use_light_nav_bar</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">
+            @bool/use_light_nav_bar
+        </item>
     </style>
 
     <style name="Theme.App.Home" parent="Theme.App.Immerse">
         <item name="android:colorPrimary">@color/primary</item>
         <item name="android:colorSecondary" tools:targetApi="25">@color/secondary</item>
-        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@android:color/white</item>
+        <item name="android:windowSplashScreenBackground" tools:targetApi="s">@android:color/white
+        </item>
         <item name="android:windowLightStatusBar" tools:targetApi="23">@bool/use_light_status_bar
         </item>
     </style>
 
-<!--    <style name="Theme.OnBoardingCompose" parent="Theme.SplashScreen">-->
-<!--        <item name="android:statusBarColor">@color/blue_700</item>-->
-<!--    </style>-->
+    <!--    <style name="Theme.OnBoardingCompose" parent="Theme.SplashScreen">-->
+    <!--        <item name="android:statusBarColor">@color/blue_700</item>-->
+    <!--    </style>-->
 
 
-<!--    <style name="Theme.CustomSplashScreenTheme" parent="Theme.OnBoardingCompose">-->
+    <!--    <style name="Theme.CustomSplashScreenTheme" parent="Theme.OnBoardingCompose">-->
 
-<!--        <item name="windowSplashScreenBackground">@color/white</item>-->
-<!--        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>-->
-<!--        <item name="windowSplashScreenAnimationDuration">6000</item>-->
-<!--        <item name="postSplashScreenTheme">@style/Theme.OnBoardingCompose</item>-->
+    <!--        <item name="windowSplashScreenBackground">@color/white</item>-->
+    <!--        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>-->
+    <!--        <item name="windowSplashScreenAnimationDuration">6000</item>-->
+    <!--        <item name="postSplashScreenTheme">@style/Theme.OnBoardingCompose</item>-->
 
-<!--    </style>-->
+    <!--    </style>-->
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         // Set the splash screen background, animated icon, and animation duration.
@@ -55,11 +59,13 @@
         // Use windowSplashScreenAnimatedIcon to add either a drawable or an
         // animated drawable. One of these is required.
         <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
-        <item name="windowSplashScreenAnimationDuration">600</item>  # Required for
+        <item name="windowSplashScreenAnimationDuration">600</item>
+        # Required for
         # animated icons
 
         // Set the theme of the Activity that directly follows your splash screen.
-        <item name="postSplashScreenTheme">@style/Theme.App.Home</item>  # Required.
+        <item name="postSplashScreenTheme">@style/Theme.App.Home</item>
+        # Required.
 
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>

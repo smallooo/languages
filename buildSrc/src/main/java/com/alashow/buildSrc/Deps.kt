@@ -138,6 +138,7 @@ object Deps {
 
         const val coilVersion = "2.0.0-alpha06"
         const val coil = "io.coil-kt:coil:$coilVersion"
+        const val coilGif = "io.coil-kt:coil-gif:$coilVersion"
         const val store = "com.dropbox.mobile.store:store4:4.0.4-KT15"
 
         // const val fetch = "androidx.tonyodev.fetch2:xfetch2:3.1.6"
