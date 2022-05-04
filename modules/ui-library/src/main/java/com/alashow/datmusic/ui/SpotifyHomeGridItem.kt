@@ -1,5 +1,6 @@
 package com.alashow.datmusic.ui
 
+import android.provider.MediaStore
 import androidx.annotation.FloatRange
 import androidx.compose.animation.core.InfiniteRepeatableSpec
 import androidx.compose.foundation.Image
@@ -34,8 +35,11 @@ import com.alashow.datmusic.data.Album
 import com.alashow.datmusic.data.AlbumsDataProvider
 import com.alashow.datmusic.data.Radio
 import com.alashow.datmusic.data.RadioList
+import com.alashow.datmusic.domain.entities.Audio
+import com.alashow.datmusic.playback.NONE_PLAYING
 import com.alashow.datmusic.playback.PlaybackConnection
 import com.alashow.datmusic.playback.playPause
+import com.alashow.datmusic.playback.players.DatmusicPlayer
 import com.alashow.datmusic.ui.audios.AudioItemAction
 import com.alashow.datmusic.ui.audios.currentPlayingMenuActionLabels
 import com.alashow.datmusic.ui.library.R
@@ -45,6 +49,7 @@ import com.google.accompanist.placeholder.PlaceholderDefaults
 import com.google.accompanist.placeholder.PlaceholderHighlight
 import com.google.accompanist.placeholder.material.placeholder
 import com.google.accompanist.placeholder.shimmer
+import kotlinx.coroutines.flow.MutableStateFlow
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import java.io.Serializable
 import java.net.URL
@@ -63,8 +68,16 @@ fun SpotifyHomeGridItem(radio: Radio, playbackConnection : PlaybackConnection) {
             .padding(8.dp)
             .clickable(onClick = {
                 //"https://sarock.radioca.st/stream;"
+              //  playbackConnection.mediaController?.playPause()
+
                 playbackConnection.playRadio(radio.url)
                 //AudioItemAction.Play()
+                var audio = Audio()
+              //  audio.streamUrl = radio.url
+                //playbackConnection.nowPlaying = MutableStateFlow(NONE_PLAYING)
+
+
+
             })
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {

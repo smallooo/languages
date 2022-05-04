@@ -218,8 +218,11 @@ class PlaybackConnectionImpl(
 
     override fun playRadio(uri: String) {
 //        audioPlayer.setSource(uri.toUri(), false)
+      //  transportControls?.playFromUri(uri.toUri(), Bundle())
+       nowPlaying.value = NONE_PLAYING
+        audioPlayer.setSource(uri.toUri(),false)
         transportControls?.playFromUri(uri.toUri(), Bundle())
-       // nowPlaying = MutableStateFlow(NONE_PLAYING)
+        transportControls?.play()
     }
 
     override fun playNextAudio(audio: Audio) {
